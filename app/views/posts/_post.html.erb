@@ -1,5 +1,18 @@
-<div class="post_div <%=post.id%>"> 
-  <div class="post_title">
+<div class="post_div 
+     
+     <%if post.avg_anger>=4 %>
+      anger_high
+     <%end%>
+
+       <%if post.avg_anger>=2.5 && post.avg_anger<4.0 %>
+         anger_medium
+         <%end%>
+
+           <%if post.avg_anger<2.5 && post.avg_anger>0 %>
+               anger_low
+               <%end%>
+                 ">
+                 <div class="post_title">
     <%= link_to post.title.capitalize, post_path(id: post.id) %>
   </div>
   <div class="post_content">
