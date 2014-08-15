@@ -30,9 +30,9 @@ class PostsController < ApplicationController
     @post.user = current_user
     tag_it @post
     if @post.save
-      @post.tag_ids.each do |tag|
-        @post.follow!(User.find_by(usertype: tag))
-      end
+     # @post.tag_ids.each do |tag|
+     #   @post.follow!(User.find_by(usertype: tag))
+     # end
       @post.follow!(current_user)
       flash[:success] = "Successfully lodged a complaint"
       redirect_to root_url
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
       @notif.user_id = User.find(Post.find(params[:id]).user_id).id
       @notif.post_id = Integer(params[:id])
       @notif.notif_user = current_user.id
-      @notif.action = "deleted your post with title '#{Post.find(params[:id]).title}'"
+      @notif.action = "has deleted your post with title '#{Post.find(params[:id]).title}'"
       @notif.save
     end
     @post = Post.find(params[:id])
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
   end
 
   def get_file
-    send_file "/public/uploads/#{Post.find(params[:post_id]).file_link}", type: 'image/jpeg', disposition: 'inline' 
+    send_file "#{Rails.root}/public/uploads/#{Post.find(params[:post_id]).file_link}", type: 'image/jpeg', disposition: 'inline' 
   end
 
   def update

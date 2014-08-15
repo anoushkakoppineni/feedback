@@ -21,33 +21,38 @@
         <li><%= link_to "Information", "#" %></li>
         <% if signed_in? %>
           <li><%= link_to "Lodge a Complaint", new_post_path %></li>
+        <% if current_user.usertype %>
+        <li><%= link_to "Edit My Tag", tag_path(id:current_user.usertype) %></li>
+      <%end%>
       <% end %>
         <% if !signed_in? %>
           <li><%= link_to "Sign In", signin_path %></li>
       <% else %>
-        <li class="dropdown">
+          <li class="dropdown">
         <% @notifs = Notification.where("user_id=? AND seen=0", current_user) %>
         <a href="#"><span class="glyphicon glyphicon-bell"><% if @notifs.length %><span class="badge_notify"><%= @notifs.length %></span><% end %></a>
-        <ul class="dropdown-menu notification_navbar_div" >
-          <div class="notifs_container">
-          <% @notifs.each do |notif| %>
-            <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}</li>".html_safe, notif%></li>
-        <% end %></div>
-          <li class="divider"></li>
-          <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
+          <ul class="dropdown-menu notification_navbar_div" >
+            <div class="notifs_container">
+              <% @notifs.each do |notif| %>
+                <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}</li>".html_safe, notif%></li>
+            <% end %></div>
+          <% if @notifs.length==0 %>
+            No unseen notifications.
+          <% end %>
+            <li class="divider"></li>
+            <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path %></li>
+          </ul>
+          </li>
+          <li class="dropdown">
+          <a href="#"><span class="glyphicon glyphicon-user"> </span> <%= current_user.fullname%> <b class="caret"></b></a>
+          <ul class="dropdown-menu signin_div">
+            <li> <%= link_to "My complaints", current_user %></li>
+            <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
+            <li class="divider"></li>
+            <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path%></li>
+          </ul>
+          </li>
+        <% end %>
         </ul>
-        </li>
-        <li class="dropdown">
-        <a href="#"><span class="glyphicon glyphicon-user"> </span> <%= current_user.fullname%> <b class="caret"></b></a>
-        <ul class="dropdown-menu signin_div">
-          <li> <%= link_to "My complaints", current_user %></li>
-          <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
-          <li class="divider"></li>
-          <li class="allnotifs_btn"> <%= link_to "All Notifications", notifications_path%></li>
-        </ul>
-        </li>
-      <% end %>
-      </ul>
     </div>
-  </div>
-</nav>
+  </nav>

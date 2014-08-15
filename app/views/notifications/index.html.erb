@@ -6,3 +6,8 @@
   <%= render notification %>
   <br>
 <% end %>
+
+<% if @notifs.length==0 %>
+  <br>
+  <p> No pending unseen notifications.</p>
+<% end%>

@@ -12,6 +12,7 @@ class AngersController < ApplicationController
     len = Anger.where("post_id=?", @post.id).length
     new_level = ((@post.avg_anger*(len-1))+@anger.level)/len
     @post.update_attributes(avg_anger: new_level)
+    @post.follow!(current_user)
     respond_to do |format|
       format.html{ redirect_to @anger }
       format.js

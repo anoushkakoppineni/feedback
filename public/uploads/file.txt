@@ -1,3 +1,0 @@
-A very intelligent turtle
-That liked using vim
-Found programming UNIX a hurdle!!!

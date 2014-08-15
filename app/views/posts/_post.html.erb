@@ -18,6 +18,8 @@
   <div class="post_content">
     <%= raw post.content %>
     <% if post.file_link%>
+      <br>
+      <%= link_to post.file_link, get_file_path(post_id: post.id), target: "_tab"%>
     <% end %>
     <br>
   </div>
@@ -68,7 +70,7 @@
   <% end %>
   </div>
 <%end%>
-  <span class="expand_comment btn btn-xs btn-default">View Comments</span>
+<span class="comment_toggle btn btn-xs btn-default"><span class="expand_comment">View Comments</span>&nbsp(<%=Comment.where("post_id=?",post.id).length%>)</span>
   <br><br>
 
   <div class="comment_container">

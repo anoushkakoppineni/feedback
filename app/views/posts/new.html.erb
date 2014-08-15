@@ -15,12 +15,13 @@
           <%= f.label :title %><br>
         <%= f.text_field :title , class:"form-control" %><br><br>
 
+        <p>Please note that the following text will be stored and displayed as HTML text. So if you want to break a line, use <br> <%= "your lines <br>" %> <br> and put your paragraphs as <br> <%= "<p> your content </p>" %><br>There are other advantages of HTML text though. You can use it to make your content more effective.</p>
         <%= f.label :content %><br>
         <%= f.text_area :content, size: "80x12"  , class:"form-control"%><br><br>
 
-        <!--        <%= f.label :files %><br>
+        <%= f.label :files %><br>
         <%= f.file_field :file_link %><br><br>
---!>
+
 <br>
         <%= f.label :tag, "Tags (min 1, max 4)" %> <br>
         <% for tag in Tag.all %>

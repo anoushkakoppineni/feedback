@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: username)
       if @user.usertype==password
         sign_in @user
-        redirect_to root_path
+        redirect_to :profile
         flash[:success] = "Welcome, #{@user[:fullname]}"
       else
         redirect_to signin_path
@@ -71,6 +71,14 @@ class SessionsController < ApplicationController
 
   end
 
+  def profile
+    @user = current_user
+    if @user.profile_picture == ""
+      @picture = "/public/uploads/user-default-blue.png"
+    else
+      @picture = @user.profile_picture
+    end
+  end
 
   def destroy
     sign_out 
