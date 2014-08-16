@@ -6,6 +6,13 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+.popover-title {
+  display: none;
+}
+
+.small_font {
+  font-size: 65%;
+}
 .post_div textarea{
   resize:vertical;
   border:2px solid rgb(190,190,190);
@@ -112,7 +119,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .notifs_container { 
-  height:300px;
+  max-height:300px;
   overflow:auto;
   padding: 0 0 0 5px;
 }

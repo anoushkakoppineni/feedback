@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'tags#index'
 
-  resources :users, only:[:show]
+  resources :users, only:[:show,:update,:edit]
   resources :notifications, only: [:index, :show]
   resources :sessions, only: [:create, :delete]
   resources :posts

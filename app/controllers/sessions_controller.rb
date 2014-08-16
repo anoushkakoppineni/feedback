@@ -21,7 +21,9 @@ class SessionsController < ApplicationController
     if !username.match(/[a-zA-Z]{2}[0-9]{2}[a-zA-Z]{1}[0-9]{3}/)
 
       @user = User.find_by(username: username)
-      if @user.usertype==password
+
+      k = @user.nil??false:@user.usertype == password
+      if k  
         sign_in @user
         redirect_to :profile
         flash[:success] = "Welcome, #{@user[:fullname]}"

@@ -11,14 +11,17 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   before_save {self.username = username.upcase }
 
-  has_secure_password
+  #has_secure_password
 
   validates :fullname, presence: true, length: {maximum: 50}
-#  validates :password, length: { minimum:6 }
-#  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-#  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :nick, presence: true, length: {maximum: 20}
+  validates :room, presence: true, format: {with: /\A\d{3,4}\z/}
+  #validates :password, length: { minimum:4 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :username, presence: true, length: {is: 8}
   validates :notifications_count, presence: true
+  validates :contact,presence: true,format: {with: /\A\d{10}\z/}
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

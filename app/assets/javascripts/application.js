@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-tooltip
+//= require bootstrap-popover
 //= require_tree .
 
 var ready = function(){
@@ -29,6 +31,7 @@ var ready = function(){
       $(this).html("View Comments");
     }
   });
+  $("[data-toggle='popover']").popover();
 
 };
 $(document).ready(ready);
