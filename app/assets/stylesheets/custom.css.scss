@@ -413,56 +413,26 @@ margin-bottom:20px;
 
 
 //Anger Level
+.anger_very_high{
+box-shadow:-20px 0px 0px #FF0000;
 
-.anger_high .post_content,.anger_high .post_title a{
-color:white;
 }
 
-.anger_high .delete_btn, .anger_medium .delete_btn, .anger_low .delete_btn{
-background-color:white;
-}
 .anger_high{
-color:white;
-background: rgba(187,22,7,1);
-background: -moz-linear-gradient(-45deg, rgba(187,22,7,1) 0%, rgba(202,30,18,1) 77%, rgba(167,14,6,1) 77%, rgba(163,10,21,1) 78%, rgba(161,20,18,1) 100%);
-background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(187,22,7,1)), color-stop(77%, rgba(202,30,18,1)), color-stop(77%, rgba(167,14,6,1)), color-stop(78%, rgba(163,10,21,1)), color-stop(100%, rgba(161,20,18,1)));
-background: -webkit-linear-gradient(-45deg, rgba(187,22,7,1) 0%, rgba(202,30,18,1) 77%, rgba(167,14,6,1) 77%, rgba(163,10,21,1) 78%, rgba(161,20,18,1) 100%);
-background: -o-linear-gradient(-45deg, rgba(187,22,7,1) 0%, rgba(202,30,18,1) 77%, rgba(167,14,6,1) 77%, rgba(163,10,21,1) 78%, rgba(161,20,18,1) 100%);
-background: -ms-linear-gradient(-45deg, rgba(187,22,7,1) 0%, rgba(202,30,18,1) 77%, rgba(167,14,6,1) 77%, rgba(163,10,21,1) 78%, rgba(161,20,18,1) 100%);
-background: linear-gradient(135deg, rgba(187,22,7,1) 0%, rgba(202,30,18,1) 77%, rgba(167,14,6,1) 77%, rgba(163,10,21,1) 78%, rgba(161,20,18,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bb1607', endColorstr='#a11412', GradientType=1 );
-
+box-shadow:-20px 0px 0px #FF9933;
 }
 
-.anger_low .post_content,.anger_low .post_title a{
-color:white;
-}
-.anger_low{
-color:white;
-background: rgba(82,157,6,1);
-background: -moz-linear-gradient(-45deg, rgba(82,157,6,1) 0%, rgba(94,169,15,1) 77%, rgba(76,138,5,1) 77%, rgba(78,139,9,1) 78%, rgba(82,133,15,1) 100%);
-background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(82,157,6,1)), color-stop(77%, rgba(94,169,15,1)), color-stop(77%, rgba(76,138,5,1)), color-stop(78%, rgba(78,139,9,1)), color-stop(100%, rgba(82,133,15,1)));
-background: -webkit-linear-gradient(-45deg, rgba(82,157,6,1) 0%, rgba(94,169,15,1) 77%, rgba(76,138,5,1) 77%, rgba(78,139,9,1) 78%, rgba(82,133,15,1) 100%);
-background: -o-linear-gradient(-45deg, rgba(82,157,6,1) 0%, rgba(94,169,15,1) 77%, rgba(76,138,5,1) 77%, rgba(78,139,9,1) 78%, rgba(82,133,15,1) 100%);
-background: -ms-linear-gradient(-45deg, rgba(82,157,6,1) 0%, rgba(94,169,15,1) 77%, rgba(76,138,5,1) 77%, rgba(78,139,9,1) 78%, rgba(82,133,15,1) 100%);
-background: linear-gradient(135deg, rgba(82,157,6,1) 0%, rgba(94,169,15,1) 77%, rgba(76,138,5,1) 77%, rgba(78,139,9,1) 78%, rgba(82,133,15,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#529d06', endColorstr='#52850f', GradientType=1 );
-
-}
-
-.anger_medium .post_content,.anger_medium .post_title a{
-color:white;
-}
 .anger_medium{
-color:white;
-background: rgba(197,130,7,1);
-background: -moz-linear-gradient(-45deg, rgba(197,130,7,1) 0%, rgba(211,140,18,1) 77%, rgba(172,109,6,1) 77%, rgba(173,111,11,1) 78%, rgba(170,107,19,1) 100%);
-background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(197,130,7,1)), color-stop(77%, rgba(211,140,18,1)), color-stop(77%, rgba(172,109,6,1)), color-stop(78%, rgba(173,111,11,1)), color-stop(100%, rgba(170,107,19,1)));
-background: -webkit-linear-gradient(-45deg, rgba(197,130,7,1) 0%, rgba(211,140,18,1) 77%, rgba(172,109,6,1) 77%, rgba(173,111,11,1) 78%, rgba(170,107,19,1) 100%);
-background: -o-linear-gradient(-45deg, rgba(197,130,7,1) 0%, rgba(211,140,18,1) 77%, rgba(172,109,6,1) 77%, rgba(173,111,11,1) 78%, rgba(170,107,19,1) 100%);
-background: -ms-linear-gradient(-45deg, rgba(197,130,7,1) 0%, rgba(211,140,18,1) 77%, rgba(172,109,6,1) 77%, rgba(173,111,11,1) 78%, rgba(170,107,19,1) 100%);
-background: linear-gradient(135deg, rgba(197,130,7,1) 0%, rgba(211,140,18,1) 77%, rgba(172,109,6,1) 77%, rgba(173,111,11,1) 78%, rgba(170,107,19,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c58207', endColorstr='#aa6b13', GradientType=1 );
+box-shadow:-20px 0px 0px #CCCC33;
 }
+
+.anger_low{
+box-shadow:-20px 0px 0px #99CC00;
+}
+
+.anger_very_low{
+box-shadow:-20px 0px 0px #009933;
+}
+
 
 

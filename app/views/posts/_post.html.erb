@@ -1,16 +1,21 @@
 <div class="post_div 
      
-     <%if post.avg_anger>=4 %>
-      anger_high
+     <%if post.avg_anger>4 %>
+      anger_very_high
      <%end%>
 
-       <%if post.avg_anger>=2.5 && post.avg_anger<4.0 %>
-         anger_medium
+       <%if post.avg_anger>3 && post.avg_anger<=4.0 %>
+         anger_high
          <%end%>
-
-           <%if post.avg_anger<2.5 && post.avg_anger>0 %>
+       <%if post.avg_anger>2 && post.avg_anger<=3.0 %>
+         anger_medium
+       <%end%>
+       <%if post.avg_anger<=2 && post.avg_anger>1 %>
                anger_low
-               <%end%>
+       <%end%>
+       <%if post.avg_anger<=1 && post.avg_anger>=0 %>
+               anger_very_low
+       <%end%>
                  ">
                  <div class="post_title">
     <%= link_to post.title.capitalize, post_path(id: post.id) %>
