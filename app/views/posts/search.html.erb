@@ -9,7 +9,7 @@
 <% if @posts and @posts.length!=0 %>
   <div>Here are the resultant posts for your search string : </div>
   <br>
-<% @posts.uniq.each do |post| %>
+<% @posts.uniq.sort!{|a,b| b.created_at <=> a.created_at }.each do |post| %>
   <%= render post %>
 <% end %>
 <% end %>

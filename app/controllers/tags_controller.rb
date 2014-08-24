@@ -10,13 +10,17 @@ class TagsController < ApplicationController
 
   def display
     @tag = Tag.find(params[:id])
-    @posts = Tag.includes(:posts).find(@tag.id).posts.where("solved=?", false)
+    @posts = Tag.includes(:posts).find(@tag.id).posts.where("solved=?", false).reverse_order
   end
 
   def update
     @tag = Tag.find(params[:id])
-    @tag.name = params[:tags][:name]
-    @tag.description = params[:tags][:description]
+    if params[:tags][:name].length!=0
+      @tag.name = params[:tags][:name]
+    end
+    if params[:tags][:description].length!=0
+      @tag.description = params[:tags][:description]
+    end
     @tag.save
     redirect_to :back
   end

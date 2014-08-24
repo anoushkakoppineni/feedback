@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new
     @comment.content = params[:comment][:content]
+    @comment.anonymous = params[:comment][:anonymous]
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
     tag_it @comment

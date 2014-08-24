@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav">
         <li><a href="http://students.iitm.ac.in">Students Portal</a></li>
 
+        <li><%= link_to "Executive Wing", "http://students.iitm.ac.in/executive" %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Information", "#" %></li>
@@ -34,7 +35,7 @@
           <ul class="dropdown-menu notification_navbar_div" >
             <div class="notifs_container">
               <% @notifs.each do |notif| %>
-                <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span> has #{notif.action}</li>".html_safe, notif%></li>
+                <%= link_to "<li><span class='bold'>#{User.find(notif.notif_user).fullname}</span>   #{notif.action}</li>".html_safe, notif%></li>
             <% end %></div>
           <% if @notifs.length==0 %>
             No unseen notifications.
