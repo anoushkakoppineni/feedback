@@ -28,7 +28,7 @@ var ready = function(){
       $(this).html("Hide Comments");
     }
     else{
-      
+
       $(this).parent(".comment_toggle").siblings(".comment_container").stop().slideUp();
       $(this).html("View Comments");
     }
@@ -61,4 +61,11 @@ $(document).on("ready page:change", function () {
         LoadMore();
         $('.post_div:lt("' + counter + '")').show();
     });
+});
+$(window).scroll(function(){
+  
+
+  if ($(window).scrollTop() > 50){
+    $(".navbar_main").css({"top": ($(window).scrollTop()) -50 + "px"});
+  }
 });
