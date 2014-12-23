@@ -63,9 +63,12 @@ $(document).on("ready page:change", function () {
     });
 });
 $(window).scroll(function(){
-  
+
 
   if ($(window).scrollTop() > 50){
-    $(".navbar_main").css({"top": ($(window).scrollTop()) -50 + "px"});
+    $(".navbar_main").addClass('navbar-fixed-top');
+  }
+  else {
+    $(".navbar_main").removeClass('navbar-fixed-top');
   }
 });
