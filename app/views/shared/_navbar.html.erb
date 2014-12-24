@@ -50,7 +50,7 @@
             <li><%= link_to "My profile", current_user %></li>
             <li> <%= link_to "My complaints", complaints_path %></li>
             <li class="divider"></li>
-            <li><%= link_to "Sign Out", signout_path, method: 'delete' %></li>
+            <li><%= link_to "Sign Out", signout_path(path: request.original_url) %></li>
           </ul>
           </li>
         <% end %>
