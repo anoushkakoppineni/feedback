@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'tags#index'
-
+  root 'oauth#index'
+  resources :oauth
+  get 'signout'=>'oauth#signout'
+  get 'signin'=>'oauth#signin'
   resources :users, only:[:show,:update,:edit]
   resources :notifications, only: [:index, :show]
   resources :sessions, only: [:create, :delete]
@@ -17,9 +19,9 @@ Rails.application.routes.draw do
   resources :follows, only: [:create, :destroy]
   resources :angers, only: [:update]
 
-  match '/signin',  to: 'sessions#new',         via: 'get'
+ # match '/signin',  to: 'sessions#new',         via: 'get'
   match '/angers', to: 'angers#create', via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  #match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/solved', to: 'posts#solved', via: 'get'
   match '/search', to: 'posts#search', via: 'get'
   match '/get_file', to: 'posts#get_file', via: 'get'
