@@ -20,6 +20,7 @@
 //= require_tree .
 
 var ready = function(){
+  $(".brand-mini").hide();
   $(".comment_container").hide();
 
   $(".expand_comment").click(function(){
@@ -62,13 +63,18 @@ $(document).on("ready page:change", function () {
         $('.post_div:lt("' + counter + '")').show();
     });
 });
+
 $(window).scroll(function(){
 
 
   if ($(window).scrollTop() > 50){
     $(".navbar_main").addClass('navbar-fixed-top');
+    $(".navbar_main").css('background-color','#FFF')
+    $(".brand-mini").show();
   }
   else {
     $(".navbar_main").removeClass('navbar-fixed-top');
+    $(".navbar_main").css('background-color','#f5f5f5')
+    $(".brand-mini").hide();
   }
 });
