@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   end
 
   def update
+     if current_user.nil?
+      redirect_to root_path
+    end  
       @user.nick = params[:user][:nick]
       @user.room = params[:user][:room]
       @user.hostel = params[:user][:hostel]
@@ -24,16 +27,21 @@ class UsersController < ApplicationController
 
   def complaints
     @user = current_user
-    @posts = Post.where("user_id = ?", current_user.id)
+    @posts = Post.where("user_id = ?", current_user.username)
   end
   private
     def set_user
+      if current_user.nil?
+        redirect_to root_path
+       
+      else
       @user = current_user
       if @user.profile_picture == ""
         @picture = "user-default-blue.png"
       else
         @picture = @user.profile_picture
       end
+    end
     end
 
     def user_params 

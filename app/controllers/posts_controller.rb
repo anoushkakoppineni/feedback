@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = Comment.where("post_id = ?", params[:id])
+    if current_user.nil?
+      redirect_to root_path
+    end  
+
   end
 
   def new

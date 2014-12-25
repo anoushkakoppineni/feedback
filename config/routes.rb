@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  #root 'tags#index'
   root 'oauth#index'
   resources :oauth
   get 'signout'=>'oauth#signout'

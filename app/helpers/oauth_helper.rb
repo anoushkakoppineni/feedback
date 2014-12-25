@@ -69,6 +69,7 @@ $PRIVATE_SITE=true
 		@user = JSON.parse open(@access_url).read
 		
 	end
+	
 
 end
 

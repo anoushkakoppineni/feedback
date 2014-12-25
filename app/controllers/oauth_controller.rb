@@ -17,11 +17,11 @@ class OauthController < ApplicationController
      		@username=@user['username'].downcase
      		if @access_token
 	     		session[:username]=@username
-	     		session[:user_id]=@user['id']  
+	     		session[:user_id]=@user['id']
 	     		@student=User.find_by_username(@user['username'])
-	     		sign_in(@student)
-	     		@student.update('remember_token'=>@access_token)
-	     		cookies.permanent[:remember_token] = @student.remember_token 		    
+	     		sign_in @student
+	     		#@student.update('remember_token'=>@access_token)
+	     		#cookies.permanent[:remember_token] = @student.remember_token 		    
 	     	end	
 		elsif  @auth_code
 			   	generate_token_req
@@ -46,10 +46,12 @@ class OauthController < ApplicationController
 	end
 
 	def signout
+		session.delete(:access_token)
+        cookies.delete(:remember_token)
+        self.current_user = nil
 		@redirect=params[:path].split('=')
 		@redirect_uri=@redirect[0]
-		session.delete(:access_token)
-		cookies.delete :remember_token
+		
 		@signout = $AUTH_SERVER +$CMD_SIGNOUT + "?response_type="+ $RESPONSE_TYPE +"&client_id=" +$CLIENT_ID +"&redirect_uri="+@redirect_uri +"&scope="+ $SCOPE +"&state=" +$STATE
 		redirect_to @signout
 	end

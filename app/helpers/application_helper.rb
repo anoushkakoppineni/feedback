@@ -27,4 +27,5 @@ module ApplicationHelper
      comment.content.sub!(roll, "<a href='/users/#{@user.id}'>#{@user.fullname.capitalize}</a>")
    end
   end
+  
 end
